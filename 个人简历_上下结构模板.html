@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 上下结构模板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            padding: 30px 20px;
+        }
+        .resume {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        /* ========== 顶部个人信息区 ========== */
+        .top-header {
+            background-color: rgb(235, 238, 251);
+            padding: 30px 35px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .avatar {
+            width: 110px;
+            height: 147px;
+            flex-shrink: 0;
+            background-color: #d0d0d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 13px;
+        }
+        .header-info {
+            flex: 1;
+        }
+        .header-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 14px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px 20px;
+        }
+        .info-row {
+            display: flex;
+            font-size: 13px;
+        }
+        .info-row .label {
+            width: 60px;
+            font-weight: 500;
+            color: #555;
+            flex-shrink: 0;
+        }
+        .info-row .text {
+            flex: 1;
+            color: #333;
+        }
+
+        /* ========== 主体内容 ========== */
+        .body-content {
+            padding: 30px 35px;
+        }
+        .section {
+            margin-bottom: 26px;
+        }
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        .section h2 {
+            font-size: 16px;
+            color: rgb(46, 81, 219);
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            margin-bottom: 14px;
+        }
+        .item {
+            margin-bottom: 14px;
+        }
+        .item:last-child {
+            margin-bottom: 0;
+        }
+        .education-title,
+        .intern-title,
+        .project-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        .education-title .time,
+        .intern-title .time,
+        .project-title .time {
+            font-weight: bold;
+        }
+        .item .school {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .item .major {
+            font-size: 13px;
+        }
+        .item p {
+            color: #555;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+        ul {
+            padding-left: 20px;
+            color: #333;
+            font-size: 13px;
+        }
+        p {
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        /* ========== 技能标签 ========== */
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skills-tags span {
+            background-color: rgb(235, 238, 251);
+            color: rgb(46, 81, 219);
+            padding: 4px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* ========== 打印样式 ========== */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                margin: 0;
+            }
+            .resume {
+                width: 210mm;
+                min-height: 297mm;
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume">
+
+        <!-- ===== 顶部：头像 + 姓名 + 基本信息 ===== -->
+        <div class="top-header">
+            <div class="avatar">照片（3:4）</div>
+            <div class="header-info">
+                <div class="header-name">姓名</div>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="label">电话</span>
+                        <span class="text">___________</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">邮箱</span>
+                        <span class="text">__________@____</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">性别</span>
+                        <span class="text">______</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">年龄</span>
+                        <span class="text">____</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">实习期</span>
+                        <span class="text">______个月</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">出勤天数</span>
+                        <span class="text">____天/周</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">到岗时间</span>
+                        <span class="text">________________</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 主体内容 ===== -->
+        <div class="body-content">
+
+            <!-- 教育经历 -->
+            <div class="section">
+                <h2>教育经历</h2>
+                <div class="item">
+                    <div class="education-title">
+                        <span class="time">20xx.xx - 20xx.xx</span>
+                        <span class="school">学校名称</span>
+                    </div>
+                    <span class="major">专业 | 学历</span>
+                    <p>主修课程：课程1、课程2、课程3、课程4、课程5等</p>
+                </div>
+                <div class="item">
+                    <div class="education-title">
+                        <span class="time">20xx.xx - 20xx.xx</span>
+                        <span class="school">学校名称</span>
+                    </div>
+                    <span class="major">专业 | 学历</span>
+                    <p>主修课程：课程1、课程2、课程3、课程4、课程5等</p>
+                </div>
+            </div>
+
+            <!-- 实习经历 -->
+            <div class="section">
+                <h2>实习经历</h2>
+                <div class="item">
+                    <div class="intern-title">
+                        <strong>公司名称-部门-组</strong>
+                        <span>（20xx.xx - 20xx.xx 岗位名称）</span>
+                    </div>
+                    <p>业务背景：简要描述所在业务线</p>
+                    <p>系统简介：负责的系统或模块</p>
+                    <p>实习概况：日常工作和协作方式</p>
+                    <p>工作内容：具体完成的任务</p>
+                    <p>项目成果：量化的产出和收获</p>
+                </div>
+            </div>
+
+            <!-- 项目经历 -->
+            <div class="section">
+                <h2>项目经历</h2>
+                <div class="item">
+                    <div class="project-title">
+                        <strong>项目名称一</strong>
+                        <span>（20xx.xx - 20xx.xx 项目类型）</span>
+                    </div>
+                    <p>项目简介：项目背景与目标概述</p>
+                    <p>技术选型：相关技术栈</p>
+                    <p>工作内容：负责的核心模块与实现方式</p>
+                    <p>项目亮点：可列举关键技术难点与解决方案</p>
+                </div>
+                <div class="item">
+                    <div class="project-title">
+                        <strong>项目名称二</strong>
+                        <span>（20xx.xx - 20xx.xx 项目类型）</span>
+                    </div>
+                    <p>项目简介：项目背景与目标概述</p>
+                    <p>技术选型：相关技术栈</p>
+                    <p>工作内容：负责的核心模块与实现方式</p>
+                </div>
+                <div class="item">
+                    <div class="project-title">
+                        <strong>项目名称三</strong>
+                        <span>（20xx.xx - 20xx.xx 项目类型）</span>
+                    </div>
+                    <p>项目简介：项目背景与目标概述</p>
+                    <p>技术选型：相关技术栈</p>
+                    <p>工作内容：负责的核心模块与实现方式</p>
+                </div>
+            </div>
+
+            <!-- 个人技能 -->
+            <div class="section">
+                <h2>个人技能</h2>
+                <div class="skills-tags">
+                    <span>HTML / CSS / JavaScript</span>
+                    <span>Vue.js / React</span>
+                    <span>Node.js / Express</span>
+                    <span>MySQL / MongoDB</span>
+                    <span>Git / 版本控制</span>
+                    <span>移动端开发</span>
+                    <span>Webpack / Vite</span>
+                    <span>Linux 基础</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
